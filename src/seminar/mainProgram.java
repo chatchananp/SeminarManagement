@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class mainProgram {
+public class MainProgram {
 	public static void main(String[] args) throws IOException {
 		
 		//read "demo.txt" file
