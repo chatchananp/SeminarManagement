@@ -23,6 +23,5 @@ public class MainProgram {
 		//display sorted seminar
 		AgendaDisplay.displaySeminar(sortedSeminarMap);
 		
-		
 	}
 }
