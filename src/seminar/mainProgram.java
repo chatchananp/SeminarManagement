@@ -8,15 +8,21 @@ import java.util.Map;
 public class mainProgram {
 	public static void main(String[] args) throws IOException {
 		
-		//full text file
-		ArrayList<String> fileTextList = new ArrayList<>(AgendaDataReader.readTextFile());
+		//read "demo.txt" file
+		ArrayList<String> seminarTextList = new ArrayList<>(AgendaDataReader.readTextFile());
 		
-		//text map that already split to seminar name & seminar minute
-		Map<String, Integer> seminarMap = new HashMap<String, Integer>(AgendaDataUtility.tranformSeminarData(fileTextList));
+		/*
+		 * send seminarTextList to tranformSeminarData method in AgendaDataUtility class
+		 * for split seminar to seminar name & seminar minute
+		*/
+		Map<String, Integer> seminarMap = new HashMap<String, Integer>(AgendaDataUtility.tranformSeminarData(seminarTextList));
 		
-		//sorted text map by ascending order
+		//sort seminar by minute in ascending order
 		Map<String, Integer> sortedSeminarMap = AgendaDataManager.sortSeminar(seminarMap);
 		
+		//display sorted seminar
 		AgendaDisplay.displaySeminar(sortedSeminarMap);
+		
+		
 	}
 }
