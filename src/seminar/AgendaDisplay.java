@@ -3,10 +3,10 @@ package seminar;
 import java.util.ArrayList;
 
 public class AgendaDisplay {
-	public static void displaySeminar(ArrayList<String> fullSeminar) {
+	public static void displaySeminar(ArrayList<String> seminarWithTime) {
 		
-		for (int i = 0; i < fullSeminar.size(); i++) {
-			System.out.println(fullSeminar.get(i));
+		for (int i = 0; i < seminarWithTime.size(); i++) {
+			System.out.println(seminarWithTime.get(i));
 		}
 		
 		

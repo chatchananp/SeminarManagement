@@ -16,11 +16,11 @@ public class AgendaDataManager {
 		
 	}
 	
-	public static ArrayList<String> showTime(Map<String, Integer> seminarMap) {
-		ArrayList<String> fullSeminar = new ArrayList<>();
+	public static ArrayList<String> includeTimeInSeminar(Map<String, Integer> seminarMap) {
+		ArrayList<String> seminarWithTime = new ArrayList<>();
 		for (Map.Entry<String, Integer> seminar : seminarMap.entrySet()) {
-			fullSeminar.add(TimeCalculation.normalTime(seminar.getValue()) + " " + seminar.getKey() + " " + seminar.getValue() + "min"); 
+			seminarWithTime.add(TimeCalculation.normalTime(seminar.getValue()) + " " + seminar.getKey() + " " + seminar.getValue() + "min"); 
         }
-		return fullSeminar;
+		return seminarWithTime;
 	}
 }
