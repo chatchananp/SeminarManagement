@@ -21,10 +21,10 @@ public class MainProgram {
 		Map<String, Integer> sortedSeminarMap = AgendaDataManager.sortSeminar(seminarMap);
 		
 		//show begin time to each seminar
-		String time = AgendaDataManager.showTime(seminarMap);
+		ArrayList<String> fullSeminar = AgendaDataManager.showTime(sortedSeminarMap);
 		
-		//display sorted seminar
-		AgendaDisplay.displaySeminar(time, sortedSeminarMap);
+		//display seminar with begin time
+		AgendaDisplay.displaySeminar(fullSeminar);
 		
 		
 	}

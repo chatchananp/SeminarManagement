@@ -1,13 +1,11 @@
 package seminar;
 
-import java.util.Map;
+import java.util.ArrayList;
 
 public class AgendaDisplay {
-	public static void displaySeminar(String time, Map<String, Integer> sortedSeminar) {
+	public static void displaySeminar(ArrayList<String> fullSeminar) {
 		
-		for (Map.Entry<String, Integer> seminar : sortedSeminar.entrySet()) {
-            System.out.println(time + " " + seminar.getKey() + " " + seminar.getValue() + "min"); 
-        }
+		System.out.println(fullSeminar);
 	}
 }
  

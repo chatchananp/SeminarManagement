@@ -1,5 +1,6 @@
 package seminar;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -15,12 +16,11 @@ public class AgendaDataManager {
 		
 	}
 	
-	public static String showTime(Map<String, Integer> seminarMap) {
-		String time = null;
+	public static ArrayList<String> showTime(Map<String, Integer> seminarMap) {
+		ArrayList<String> fullSeminar = new ArrayList<>();
 		for (Map.Entry<String, Integer> seminar : seminarMap.entrySet()) {
-			time = TimeCalculation.normalTime(seminar.getValue());
+			fullSeminar.add(TimeCalculation.normalTime(seminar.getValue()) + " " + seminar.getKey() + " " + seminar.getValue() + "min"); 
         }
-		
-		return time;
+		return fullSeminar;
 	}
 }
