@@ -16,12 +16,12 @@ public class TimeCalculation {
 		return LocalTime.of(startH, startM);
 	}
 	
-	public int setHour(int hr) {
+	public static int setHour(int hr) {
 		startHour = hr;
 		return startHour;
 	}
 	
-	public int setMinute(int min) {
+	public static int setMinute(int min) {
 		startMinute = min;
 		return startMinute;
 	}
@@ -57,18 +57,18 @@ public class TimeCalculation {
 		return beginT.format(dtf); //+ EndTime(userMinute) 
 	}
 	
-	void setLunchTime(int userMinute) {
+	public static String setLunchTime(int userMinute) {
 		LocalTime setLunchTime = seminarTime(12, 0);
-		System.out.print(setLunchTime.format(dtf) + " ");
 		setHour(13);
 		setMinute(0);
+		return setLunchTime.format(dtf);
 	}
 	
-	void setNETime(int userMinute) {
+	public static String setNETime(int userMinute) {
 		LocalTime setNETime = seminarTime(startHour, startMinute);
 		System.out.print(setNETime.format(dtf) + " ");
 		setHour(9);
 		setMinute(0);
-		n++;
+		return setNETime.format(dtf);
 	}
 }

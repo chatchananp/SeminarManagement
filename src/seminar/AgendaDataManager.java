@@ -14,4 +14,13 @@ public class AgendaDataManager {
                 (e1, e2) -> e1, LinkedHashMap::new));
 		
 	}
+	
+	public static String showTime(Map<String, Integer> seminarMap) {
+		String time = null;
+		for (Map.Entry<String, Integer> seminar : seminarMap.entrySet()) {
+			time = TimeCalculation.normalTime(seminar.getValue());
+        }
+		
+		return time;
+	}
 }
