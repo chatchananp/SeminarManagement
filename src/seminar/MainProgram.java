@@ -17,7 +17,7 @@ public class MainProgram {
 		*/
 		Map<String, Integer> seminarMap = new HashMap<String, Integer>(AgendaDataUtility.tranformSeminarData(seminarTextList));
 		
-		//sort seminar by minute in ascending order
+		//sort seminar by minute in descending order
 		Map<String, Integer> sortedSeminarMap = AgendaDataManager.sortSeminar(seminarMap);
 		
 		//display sorted seminar
