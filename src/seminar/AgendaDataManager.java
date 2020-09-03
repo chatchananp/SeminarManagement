@@ -26,8 +26,7 @@ public class AgendaDataManager {
 				seminarWithTime.add(TimeCalculation.setLunchTime() + " " + "Lunch");
 			}
 				
-			
-			if (TimeCalculation.startHour == 17) {
+			if (TimeCalculation.startHour >= 16 && TimeCalculation.startHour <= 17 && TimeCalculation.newMinute(seminar.getValue()) >= 60) {
 				seminarWithTime.add(TimeCalculation.setNETime() + " " + "Networking Event" + "\n");
 			}
 				
