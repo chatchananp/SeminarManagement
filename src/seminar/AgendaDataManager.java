@@ -20,7 +20,7 @@ public class AgendaDataManager {
 		ArrayList<String> seminarWithTime = new ArrayList<>();
 		for (Map.Entry<String, Integer> seminar : seminarMap.entrySet()) {
 			
-			seminarWithTime.add(TimeCalculation.normalTime(seminar.getValue()) + " " + seminar.getKey() + " " + seminar.getValue() + "min");
+			seminarWithTime.add(TimeCalculation.setBeginSeminarTime(seminar.getValue()) + " " + seminar.getKey() + " " + seminar.getValue() + "min");
 			
 			if (TimeCalculation.startHour == 12) {
 				seminarWithTime.add(TimeCalculation.setLunchTime() + " " + "Lunch");
