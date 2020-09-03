@@ -20,7 +20,7 @@ public class MainProgram {
 		//sort seminar by minute in descending order
 		Map<String, Integer> sortedSeminarMap = AgendaDataManager.sortSeminar(seminarMap);
 		
-		//show begin time to each seminar
+		//add begin time to each seminar
 		ArrayList<String> seminarWithTime = AgendaDataManager.includeTimeInSeminar(sortedSeminarMap);
 		
 		//display seminar with begin time

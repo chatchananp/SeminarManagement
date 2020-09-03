@@ -9,7 +9,7 @@ public class TimeCalculation {
 	static int calMinute = 0;
 	static int startHour = 9;
 	static int startMinute = 0;
-	int n = 1;
+	static int n = 1;
 	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mma");
 	
 	public static LocalTime seminarTime(int startH, int startM) {
@@ -51,24 +51,28 @@ public class TimeCalculation {
 	}
 	
 	public static String normalTime (int userMinute) {
-		LocalTime beginT = setBeginTime(userMinute);
+		if (startHour == 9 && startMinute == 0) {
+			System.out.println("Day " + n);
+		}
+ 		LocalTime beginT = setBeginTime(userMinute);
 		setEndTime(userMinute);
 
 		return beginT.format(dtf); //+ EndTime(userMinute) 
 	}
 	
-	public static String setLunchTime(int userMinute) {
+	public static String setLunchTime() {
 		LocalTime setLunchTime = seminarTime(12, 0);
 		setHour(13);
 		setMinute(0);
 		return setLunchTime.format(dtf);
 	}
 	
-	public static String setNETime(int userMinute) {
+	public static String setNETime() {
 		LocalTime setNETime = seminarTime(startHour, startMinute);
 		System.out.print(setNETime.format(dtf) + " ");
 		setHour(9);
 		setMinute(0);
+		n++;
 		return setNETime.format(dtf);
 	}
 }
