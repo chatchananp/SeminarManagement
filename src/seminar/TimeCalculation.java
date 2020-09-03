@@ -69,7 +69,6 @@ public class TimeCalculation {
 	
 	public static String setNETime() {
 		LocalTime setNETime = seminarTime(startHour, startMinute);
-		System.out.print(setNETime.format(dtf) + " ");
 		setHour(9);
 		setMinute(0);
 		n++;
