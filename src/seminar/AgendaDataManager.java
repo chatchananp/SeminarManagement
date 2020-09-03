@@ -28,7 +28,7 @@ public class AgendaDataManager {
 				
 			
 			if (TimeCalculation.startHour == 17) {
-				seminarWithTime.add(TimeCalculation.setNETime() + " " + "Networking Event");
+				seminarWithTime.add(TimeCalculation.setNETime() + " " + "Networking Event" + "\n");
 			}
 				
         }
