@@ -18,19 +18,28 @@ public class AgendaDataManager {
 	
 	public static ArrayList<String> includeTimeInSeminar(Map<String, Integer> seminarMap) {
 		ArrayList<String> seminarWithTime = new ArrayList<>();
+		ArrayList<Integer> timeList = new ArrayList<>();
 		for (Map.Entry<String, Integer> seminar : seminarMap.entrySet()) {
 			
 			seminarWithTime.add(TimeCalculation.setBeginSeminarTime(seminar.getValue()) + " " + seminar.getKey() + " " + seminar.getValue() + "min");
-			
+			timeList.add(TimeCalculation.startHour);
 			if (TimeCalculation.startHour == 12) {
 				seminarWithTime.add(TimeCalculation.setLunchTime() + " " + "Lunch");
+				timeList.add(TimeCalculation.startHour);
 			}
 				
-			if (TimeCalculation.startHour >= 16 && TimeCalculation.startHour <= 17 && TimeCalculation.startMinute + seminar.getValue() >= 60) {
+			if (TimeCalculation.startHour >= 16 && TimeCalculation.startHour <= 17 && TimeCalculation.startMinute + seminar.getValue() > 60) {
 				seminarWithTime.add(TimeCalculation.setNETime() + " " + "Networking Event" + "\n");
+				timeList.add(TimeCalculation.startHour);
 			}
 				
         }
+		
+		if (timeList.get(timeList.size() - 1) >= 16 && timeList.get(timeList.size() - 1) <= 17) {
+			seminarWithTime.add(TimeCalculation.setNETime() + " " + "Networking Event" + "\n");
+			timeList.add(TimeCalculation.startHour);
+		}
+		
 		return seminarWithTime;
 	}
 }
