@@ -39,7 +39,7 @@ public class TimeCalculation {
 		return calMinute;
 	}
 
-	public static LocalTime setBeginTime(int userMinute) {
+	public static LocalTime setBeginTime() {
 		return LocalTime.of(startHour, startMinute);
 	}
 	
@@ -50,7 +50,7 @@ public class TimeCalculation {
 	}
 	
 	public static String setBeginSeminarTime (int userMinute) {
- 		LocalTime beginT = setBeginTime(userMinute);
+ 		LocalTime beginT = setBeginTime();
 		setEndTime(userMinute);
 
 		return beginT.format(dtf); //+ EndTime(userMinute) 
