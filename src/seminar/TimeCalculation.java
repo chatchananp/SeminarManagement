@@ -21,10 +21,6 @@ public class TimeCalculation {
 		return startMinute;
 	}
 	
-	public static int checkNewMinute(int userMinute) {
-		return userMinute + startMinute;
-	}
-	
 	public static int calculateHour(int userMinute) {
 		LocalTime time = LocalTime.of(startHour, startMinute);
 		int newHour = (userMinute + startMinute) / 60;
