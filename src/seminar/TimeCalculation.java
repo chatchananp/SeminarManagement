@@ -52,6 +52,11 @@ public class TimeCalculation {
 		return beginT.format(dtf); //+ EndTime(userMinute) 
 	}
 	
+	public static LocalTime setBeginSeminarLocalTime (int userMinute) {
+		LocalTime beginT = setBeginTime();
+		return beginT;
+	}
+	
 	public static String setLunchTime() {
 		LocalTime setLunchTime = LocalTime.of(12, 0);
 		setHour(13);

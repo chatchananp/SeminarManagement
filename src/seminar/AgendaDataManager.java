@@ -1,5 +1,6 @@
 package seminar;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,26 +19,26 @@ public class AgendaDataManager {
 	
 	public static ArrayList<String> includeTimeInSeminar(Map<String, Integer> seminarMap) {
 		ArrayList<String> seminarWithTime = new ArrayList<>();
-		ArrayList<Integer> timeList = new ArrayList<>();
+		ArrayList<LocalTime> seminarLocalTime = new ArrayList<>();
 		for (Map.Entry<String, Integer> seminar : seminarMap.entrySet()) {
 			
 			seminarWithTime.add(TimeCalculation.setBeginSeminarTime(seminar.getValue()) + " " + seminar.getKey() + " " + seminar.getValue() + "min");
-			timeList.add(TimeCalculation.startHour);
-			if (TimeCalculation.startHour == 12) {
+			seminarLocalTime.add(TimeCalculation.setBeginSeminarLocalTime(seminar.getValue()));
+			
+			if (TimeCalculation.setBeginSeminarLocalTime(seminar.getValue()).compareTo(LocalTime.of(12, 0)) == 0) {
 				seminarWithTime.add(TimeCalculation.setLunchTime() + " " + "Lunch");
-				timeList.add(TimeCalculation.startHour);
+				seminarLocalTime.add(TimeCalculation.setBeginSeminarLocalTime(seminar.getValue()));
 			}
 				
-			if (TimeCalculation.startHour >= 16 && TimeCalculation.startHour <= 17 && TimeCalculation.startMinute + seminar.getValue() > 60) {
+			if (TimeCalculation.setBeginSeminarLocalTime(seminar.getValue()).compareTo(LocalTime.of(16, 0)) > 0 && TimeCalculation.setBeginSeminarLocalTime(seminar.getValue()).compareTo(LocalTime.of(17, 0)) < 0 && TimeCalculation.startMinute + seminar.getValue() > 60) {
 				seminarWithTime.add(TimeCalculation.setNETime() + " " + "Networking Event" + "\n");
-				timeList.add(TimeCalculation.startHour);
+				seminarLocalTime.add(TimeCalculation.setBeginSeminarLocalTime(seminar.getValue()));
 			}
 				
         }
 		
-		if (timeList.get(timeList.size() - 1) >= 16 && timeList.get(timeList.size() - 1) <= 17) {
+		if (seminarLocalTime.get(seminarLocalTime.size() - 1).compareTo(LocalTime.of(16, 0)) > 0 && seminarLocalTime.get(seminarLocalTime.size() - 1).compareTo(LocalTime.of(17, 0)) < 0) {
 			seminarWithTime.add(TimeCalculation.setNETime() + " " + "Networking Event" + "\n");
-			timeList.add(TimeCalculation.startHour);
 		}
 		
 		return seminarWithTime;
