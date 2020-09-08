@@ -4,7 +4,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class TimeCalculation {
-	int minute = 0;
 	static int calHour = 0;
 	static int calMinute = 0;
 	static int startHour = 9;
@@ -22,7 +21,7 @@ public class TimeCalculation {
 		return startMinute;
 	}
 	
-	public static int newMinute(int userMinute) {
+	public static int checkNewMinute(int userMinute) {
 		return userMinute + startMinute;
 	}
 	
