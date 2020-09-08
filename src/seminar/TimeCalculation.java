@@ -25,7 +25,7 @@ public class TimeCalculation {
 		return userMinute + startMinute;
 	}
 	
-	public static int calHour(int userMinute) {
+	public static int calculateHour(int userMinute) {
 		LocalTime time = LocalTime.of(startHour, startMinute);
 		int newHour = (userMinute + startMinute) / 60;
 		calHour = time.getHour() + newHour;
@@ -33,7 +33,7 @@ public class TimeCalculation {
 		return calHour;
 	}
 	
-	public static int calMinute(int userMinute) {
+	public static int calculateMinute(int userMinute) {
 		calMinute = (userMinute + startMinute) % 60;
 		startMinute = calMinute;
 		return calMinute;
@@ -44,8 +44,8 @@ public class TimeCalculation {
 	}
 	
 	public static LocalTime setEndTime(int userMinute) {
-		int endHr = calHour(userMinute);
-		int endMin = calMinute(userMinute);
+		int endHr = calculateHour(userMinute);
+		int endMin = calculateMinute(userMinute);
 		return LocalTime.of(endHr, endMin);
 	}
 	
